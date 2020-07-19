@@ -10,7 +10,11 @@ const forecast = (lat, lon, callback) => {
     } else {
       const temp = body.current.temperature;
       const desc = body.current.weather_descriptions[0];
-      callback(undefined, `It is currently ${temp}F and ${desc}.`);
+      const hum = body.current.humidity;
+      callback(
+        undefined,
+        `It is currently ${temp}F and ${desc}. Humidity is ${hum}%`
+      );
     }
   });
 };
